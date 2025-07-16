@@ -13,6 +13,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     { name: "About", path: "/about" },
     { name: "Services", path: "/services" },
     { name: "Surveys", path: "/surveys" },
+    { name: "Feedback", path: "/feedback" },
     { name: "Contact", path: "/contact" },
   ];
 
@@ -28,11 +29,9 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             <Link to="/" className="flex items-center space-x-2">
               <motion.div
                 whileHover={{ scale: 1.05 }}
-                className="text-2xl font-bold text-white"
+                className="text-2xl font-bold italic text-white"
                 style={{ 
-                  fontFamily: 'Helvetica, Arial, sans-serif',
-                  fontWeight: 'bold',
-                  fontStyle: 'italic'
+                  fontFamily: 'Helvetica, Arial, sans-serif'
                 }}
               >
                 CLOUDASTICK
