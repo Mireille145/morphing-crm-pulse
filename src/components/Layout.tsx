@@ -12,7 +12,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
     { name: "Services", path: "/services" },
-    { name: "Surveys", path: "/surveys" },
+    { name: "Clients", path: "/clients" },
     { name: "Feedback", path: "/feedback" },
     { name: "Contact", path: "/contact" },
   ];
