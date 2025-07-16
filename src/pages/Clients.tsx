@@ -15,14 +15,14 @@ const Clients = () => {
       title: "Real-estate Customers",
       bgColor: "from-blue-900/20 to-cyan-900/20",
       logos: [
-        { name: "Benoit Properties", text: "benoitproperties", subtitle: "INTERNATIONAL", location: "USA & UK" },
-        { name: "Prosperity", text: "PROSPERITY", subtitle: "REAL ESTATE", location: "EGY" },
-        { name: "Erth", text: "إرث", subtitle: "ERTH", location: "KSA" },
-        { name: "Aldau", text: "ALDAU", subtitle: "DEVELOPMENT", location: "EGY" },
-        { name: "Memar", text: "معمار", subtitle: "MEMAR", location: "KSA" },
-        { name: "Nile City", text: "NILE CITY", subtitle: "INVESTMENTS", location: "EGY" },
-        { name: "Marakez", text: "MARAKEZ", subtitle: "EGY - KSA", location: "" },
-        { name: "Dorra", text: "DORRA", subtitle: "DEVELOPMENTS", location: "EGY" }
+        { name: "Benoit Properties", text: "benoitproperties", subtitle: "INTERNATIONAL", location: "USA & UK", logo: "🏢" },
+        { name: "Prosperity", text: "PROSPERITY", subtitle: "REAL ESTATE", location: "EGY", logo: "🏗️" },
+        { name: "Erth", text: "إرث", subtitle: "ERTH", location: "KSA", logo: "🏛️" },
+        { name: "Aldau", text: "ALDAU", subtitle: "DEVELOPMENT", location: "EGY", logo: "🌆" },
+        { name: "Memar", text: "معمار", subtitle: "MEMAR", location: "KSA", logo: "🏘️" },
+        { name: "Nile City", text: "NILE CITY", subtitle: "INVESTMENTS", location: "EGY", logo: "🏢" },
+        { name: "Marakez", text: "MARAKEZ", subtitle: "EGY - KSA", location: "", logo: "🏬" },
+        { name: "Dorra", text: "DORRA", subtitle: "DEVELOPMENTS", location: "EGY", logo: "🏗️" }
       ]
     },
     {
@@ -30,10 +30,10 @@ const Clients = () => {
       title: "Health-sector Customers",
       bgColor: "from-green-900/20 to-emerald-900/20",
       logos: [
-        { name: "Meddbase", text: "meddbase", subtitle: "by carity", location: "Europe" },
-        { name: "Live Tula", text: "LIVE TULA", subtitle: "", location: "US" },
-        { name: "Avon", text: "AVON", subtitle: "", location: "Egypt" },
-        { name: "Peraya", text: "peraya", subtitle: "Insurance Brokerage", location: "Egypt" }
+        { name: "Meddbase", text: "meddbase", subtitle: "by carity", location: "Europe", logo: "🏥" },
+        { name: "Live Tula", text: "LIVE TULA", subtitle: "", location: "US", logo: "⚕️" },
+        { name: "Avon", text: "AVON", subtitle: "", location: "Egypt", logo: "💊" },
+        { name: "Peraya", text: "peraya", subtitle: "Insurance Brokerage", location: "Egypt", logo: "🩺" }
       ]
     },
     {
@@ -41,11 +41,11 @@ const Clients = () => {
       title: "Manufacturing Customers",
       bgColor: "from-orange-900/20 to-red-900/20",
       logos: [
-        { name: "Global Scales", text: "GLOBAL SCALES", subtitle: "& SYSTEMS CO. LTD.", location: "EG" },
-        { name: "Fruit Nation", text: "FRUIT NATION", subtitle: "", location: "" },
-        { name: "Plan Form", text: "PLAN FORM", subtitle: "CONTROL YOUR VALUE CHAIN", location: "Egypt" },
-        { name: "Galina", text: "Galina", subtitle: "Frozen Fruits & Vegetables", location: "" },
-        { name: "Beshay Steel", text: "بشاي الصلب", subtitle: "BESHAY STEEL", location: "Egypt" }
+        { name: "Global Scales", text: "GLOBAL SCALES", subtitle: "& SYSTEMS CO. LTD.", location: "EG", logo: "⚖️" },
+        { name: "Fruit Nation", text: "FRUIT NATION", subtitle: "", location: "", logo: "🍎" },
+        { name: "Plan Form", text: "PLAN FORM", subtitle: "CONTROL YOUR VALUE CHAIN", location: "Egypt", logo: "📊" },
+        { name: "Galina", text: "Galina", subtitle: "Frozen Fruits & Vegetables", location: "", logo: "🥬" },
+        { name: "Beshay Steel", text: "بشاي الصلب", subtitle: "BESHAY STEEL", location: "Egypt", logo: "🏭" }
       ]
     },
     {
@@ -53,11 +53,11 @@ const Clients = () => {
       title: "Retail Customers",
       bgColor: "from-purple-900/20 to-pink-900/20",
       logos: [
-        { name: "Avon", text: "AVON", subtitle: "", location: "" },
-        { name: "March Al Shokh", text: "مارح الشوخ", subtitle: "", location: "" },
-        { name: "Reef Diet", text: "الريف", subtitle: "REEF DIET", location: "" },
-        { name: "Town to Town Movers", text: "TOWN TO TOWN MOVERS", subtitle: "THE FRIENDLY MOVERS", location: "" },
-        { name: "Retail Insights", text: "retailinsights", subtitle: "", location: "" }
+        { name: "Avon", text: "AVON", subtitle: "", location: "", logo: "💄" },
+        { name: "March Al Shokh", text: "مارح الشوخ", subtitle: "", location: "", logo: "🛍️" },
+        { name: "Reef Diet", text: "الريف", subtitle: "REEF DIET", location: "", logo: "🥗" },
+        { name: "Town to Town Movers", text: "TOWN TO TOWN MOVERS", subtitle: "THE FRIENDLY MOVERS", location: "", logo: "🚚" },
+        { name: "Retail Insights", text: "retailinsights", subtitle: "", location: "", logo: "📈" }
       ]
     }
   ];
@@ -187,7 +187,10 @@ const Clients = () => {
                           }}
                           className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/20 hover:bg-white/20 transition-all duration-300 group"
                         >
-                          <div className="text-center space-y-2">
+                          <div className="text-center space-y-3">
+                            <div className="text-4xl mb-2 group-hover:scale-110 transition-transform">
+                              {logo.logo}
+                            </div>
                             <div className="text-white font-bold text-lg md:text-xl group-hover:text-cyan-400 transition-colors">
                               {logo.text}
                             </div>

@@ -16,7 +16,7 @@ const Feedback = () => {
       author: "Simon Thorley",
       position: "CEO, InTuition Languages",
       company: "InTuition Languages",
-      image: "/lovable-uploads/2bfae079-606f-45b2-bee0-70af6023b001.png",
+      image: "/lovable-uploads/0394d2f8-7fb7-406b-ae27-dac899d389ca.png",
       rating: 5,
       bgColor: "from-gray-800/90 to-gray-900/95"
     },
@@ -26,7 +26,7 @@ const Feedback = () => {
       author: "Nour H.",
       position: "Head of Growth, Meddbase",
       company: "Meddbase",
-      image: "/lovable-uploads/2bfae079-606f-45b2-bee0-70af6023b001.png",
+      image: "/lovable-uploads/5e8ee6e4-e9ed-4b1f-9479-d780948d4621.png",
       rating: 5,
       bgColor: "from-blue-900/90 to-purple-900/95"
     },
@@ -36,7 +36,7 @@ const Feedback = () => {
       author: "Nick Morrill",
       position: "VP of Software Engineering, Tula HealthLive TULA",
       company: "Tula HealthLive TULA",
-      image: "/lovable-uploads/86bce185-8352-41ab-95de-e94dde49cfa6.png",
+      image: "/lovable-uploads/eeb52347-35fe-4e7b-9252-e7b606fba1c4.png",
       rating: 5,
       bgColor: "from-teal-900/90 to-cyan-900/95"
     },
@@ -46,7 +46,7 @@ const Feedback = () => {
       author: "Ahmed Yousry",
       position: "Sales Effectiveness Project Leader, FedEx",
       company: "FedEx",
-      image: "/lovable-uploads/86bce185-8352-41ab-95de-e94dde49cfa6.png",
+      image: "/lovable-uploads/4fe89c11-3a26-4657-b290-84aa60913e64.png",
       rating: 5,
       bgColor: "from-orange-900/90 to-red-900/95"
     }
@@ -153,12 +153,6 @@ const Feedback = () => {
                   }}
                   className="absolute inset-0 bg-gradient-to-br from-gray-800/95 to-gray-900/95 backdrop-blur-sm border border-gray-700/50"
                 >
-                  {/* Diagonal Pattern Background */}
-                  <div className="absolute inset-0 opacity-20">
-                    <div className="absolute inset-0 bg-gradient-to-br from-gray-700 to-gray-800 transform rotate-45 scale-150" />
-                    <div className="absolute inset-0 bg-gradient-to-tr from-gray-600 to-gray-700 transform -rotate-45 scale-150 translate-x-1/4" />
-                  </div>
-
                   {/* Content */}
                   <div className="relative z-10 h-full flex items-center">
                     <div className="w-full max-w-6xl mx-auto px-8 md:px-12">
@@ -204,24 +198,39 @@ const Feedback = () => {
                           </div>
                         </motion.div>
 
-                        {/* Company Logo/Branding */}
+                        {/* Person Photo & Company Branding */}
                         <motion.div
                           initial={{ opacity: 0, x: 50 }}
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ delay: 0.7, duration: 0.8 }}
-                          className="flex items-center justify-center"
+                          className="flex flex-col items-center justify-center space-y-8"
                         >
-                          <div className="text-center space-y-6">
-                            <div className="text-6xl md:text-8xl font-bold text-gray-600 opacity-50">
+                          {/* Person Photo */}
+                          <div className="relative">
+                            <div className="w-48 h-48 rounded-full overflow-hidden border-4 border-gray-600 shadow-2xl">
+                              <img
+                                src={reviews[currentReview].image}
+                                alt={reviews[currentReview].author}
+                                className="w-full h-full object-cover"
+                              />
+                            </div>
+                            <div className="absolute -bottom-2 -right-2 w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center shadow-lg">
+                              <Star className="w-6 h-6 text-yellow-800 fill-yellow-800" />
+                            </div>
+                          </div>
+
+                          {/* Company Branding */}
+                          <div className="text-center space-y-4">
+                            <div className="text-4xl md:text-5xl font-bold text-gray-600 opacity-50">
                               {reviews[currentReview].company}
                             </div>
                             <div className="flex items-center justify-center space-x-4">
-                              <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center shadow-lg">
-                                <div className="text-2xl font-bold text-gray-800">
+                              <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center shadow-lg">
+                                <div className="text-lg font-bold text-gray-800">
                                   {reviews[currentReview].company.charAt(0)}
                                 </div>
                               </div>
-                              <div className="text-right">
+                              <div className="text-center">
                                 <div className="text-xs text-gray-400 uppercase tracking-wide">
                                   Cloudastick
                                 </div>
