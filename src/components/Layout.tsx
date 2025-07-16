@@ -28,7 +28,12 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             <Link to="/" className="flex items-center space-x-2">
               <motion.div
                 whileHover={{ scale: 1.05 }}
-                className="text-2xl font-bold text-cyan-400"
+                className="text-2xl font-bold text-white"
+                style={{ 
+                  fontFamily: 'Helvetica, Arial, sans-serif',
+                  fontWeight: 'bold',
+                  fontStyle: 'italic'
+                }}
               >
                 CLOUDASTICK
               </motion.div>

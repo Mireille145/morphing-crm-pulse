@@ -16,6 +16,7 @@ const Surveys = () => {
       description: "Comprehensive feedback collection system with real-time analytics and automated follow-ups.",
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
       features: ["Real-time responses", "Automated scoring", "Custom branding", "Mobile optimized"],
+      bgColor: "from-blue-900/20 to-purple-900/20"
     },
     {
       id: 2,
@@ -23,6 +24,7 @@ const Surveys = () => {
       description: "Advanced product evaluation system with sentiment analysis and recommendation engine.",
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
       features: ["Sentiment analysis", "Visual feedback", "Integration ready", "AI insights"],
+      bgColor: "from-green-900/20 to-teal-900/20"
     },
     {
       id: 3,
@@ -30,6 +32,7 @@ const Surveys = () => {
       description: "Internal survey system for measuring employee satisfaction and organizational health.",
       image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop",
       features: ["Anonymous responses", "Trend analysis", "Department insights", "Action planning"],
+      bgColor: "from-orange-900/20 to-red-900/20"
     },
     {
       id: 4,
@@ -37,6 +40,7 @@ const Surveys = () => {
       description: "Comprehensive market analysis tools with demographic targeting and competitive insights.",
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
       features: ["Demographic targeting", "Competitive analysis", "Market trends", "Export capabilities"],
+      bgColor: "from-cyan-900/20 to-blue-900/20"
     },
   ];
 
@@ -44,7 +48,7 @@ const Surveys = () => {
     if (isPlaying) {
       const interval = setInterval(() => {
         setCurrentSurvey((prev) => (prev + 1) % surveys.length);
-      }, 5000);
+      }, 6000);
       return () => clearInterval(interval);
     }
   }, [isPlaying, surveys.length]);
@@ -62,221 +66,212 @@ const Surveys = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900">
+    <div className="min-h-screen bg-gray-900 relative overflow-hidden">
+      {/* Dynamic Background */}
+      <div className="absolute inset-0 z-0">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentSurvey}
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+            transition={{ duration: 2, ease: "easeInOut" }}
+            className={`absolute inset-0 bg-gradient-to-br ${surveys[currentSurvey].bgColor}`}
+          />
+        </AnimatePresence>
+        <div className="absolute inset-0 bg-black/40" />
+      </div>
+
       {/* Hero Section */}
-      <section className="relative py-32 bg-gradient-to-br from-gray-800 to-gray-900">
+      <section className="relative z-10 py-32 bg-gradient-to-br from-gray-800/50 to-gray-900/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center">
-            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight">
               Survey Solutions
             </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
               Powerful survey tools that help you gather insights and make data-driven decisions.
             </p>
           </AnimatedSection>
         </div>
       </section>
 
-      {/* Interactive Survey Showcase */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-6">
-              Interactive Survey Showcase
-            </h2>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-              Experience our survey solutions in action with smooth transitions and dynamic content.
-            </p>
-          </AnimatedSection>
-
-          {/* Survey Display */}
+      {/* Main Survey Showcase */}
+      <section className="relative z-10 py-20 min-h-screen flex items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="relative">
-            <div className="bg-gray-800/50 rounded-2xl p-8 border border-gray-700 backdrop-blur-sm">
-              <div className="grid lg:grid-cols-2 gap-12 items-center">
-                {/* Survey Image */}
-                <div className="relative h-96 overflow-hidden rounded-xl">
-                  <AnimatePresence mode="wait">
-                    <motion.div
-                      key={currentSurvey}
-                      initial={{ opacity: 0, scale: 0.8, rotateY: 90 }}
-                      animate={{ opacity: 1, scale: 1, rotateY: 0 }}
-                      exit={{ opacity: 0, scale: 0.8, rotateY: -90 }}
-                      transition={{ duration: 0.8, ease: "easeInOut" }}
-                      className="absolute inset-0"
-                    >
-                      <img
-                        src={surveys[currentSurvey].image}
-                        alt={surveys[currentSurvey].title}
-                        className="w-full h-full object-cover"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent" />
-                    </motion.div>
-                  </AnimatePresence>
-                </div>
+            {/* Survey Container */}
+            <div className="relative h-[600px] md:h-[700px] rounded-3xl overflow-hidden shadow-2xl">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentSurvey}
+                  initial={{ 
+                    opacity: 0, 
+                    scale: 0.8,
+                    rotateY: 45,
+                    z: -100
+                  }}
+                  animate={{ 
+                    opacity: 1, 
+                    scale: 1,
+                    rotateY: 0,
+                    z: 0
+                  }}
+                  exit={{ 
+                    opacity: 0, 
+                    scale: 1.2,
+                    rotateY: -45,
+                    z: 100
+                  }}
+                  transition={{ 
+                    duration: 1.2, 
+                    ease: [0.25, 0.1, 0.25, 1],
+                    staggerChildren: 0.1
+                  }}
+                  className="absolute inset-0 bg-gradient-to-br from-gray-800/90 to-gray-900/90 backdrop-blur-sm border border-gray-700/50"
+                  style={{
+                    transformStyle: 'preserve-3d',
+                    perspective: '1000px'
+                  }}
+                >
+                  {/* Background Image */}
+                  <div className="absolute inset-0 overflow-hidden">
+                    <motion.img
+                      src={surveys[currentSurvey].image}
+                      alt={surveys[currentSurvey].title}
+                      className="w-full h-full object-cover"
+                      initial={{ scale: 1.2 }}
+                      animate={{ scale: 1 }}
+                      transition={{ duration: 1.5 }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-gray-900/95 via-gray-900/70 to-gray-900/50" />
+                  </div>
 
-                {/* Survey Content */}
-                <div className="space-y-6">
-                  <AnimatePresence mode="wait">
-                    <motion.div
-                      key={currentSurvey}
-                      initial={{ opacity: 0, x: 50 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: -50 }}
-                      transition={{ duration: 0.5 }}
-                    >
-                      <h3 className="text-3xl font-bold text-white mb-4">
-                        {surveys[currentSurvey].title}
-                      </h3>
-                      <p className="text-gray-300 text-lg mb-6">
-                        {surveys[currentSurvey].description}
-                      </p>
-                      
-                      <div className="space-y-3">
-                        {surveys[currentSurvey].features.map((feature, index) => (
-                          <motion.div
-                            key={feature}
-                            initial={{ opacity: 0, x: 20 }}
+                  {/* Content */}
+                  <div className="relative z-10 h-full flex items-center">
+                    <div className="w-full max-w-4xl mx-auto px-8 md:px-12">
+                      <motion.div
+                        initial={{ opacity: 0, y: 50 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.3, duration: 0.8 }}
+                        className="space-y-8"
+                      >
+                        <div className="space-y-6">
+                          <motion.h2 
+                            className="text-4xl md:text-6xl font-bold text-white leading-tight"
+                            initial={{ opacity: 0, x: -50 }}
                             animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: index * 0.1 }}
-                            className="flex items-center text-gray-300"
+                            transition={{ delay: 0.4, duration: 0.8 }}
                           >
-                            <div className="w-2 h-2 bg-cyan-400 rounded-full mr-3"></div>
-                            {feature}
-                          </motion.div>
-                        ))}
-                      </div>
-                    </motion.div>
-                  </AnimatePresence>
-                </div>
-              </div>
+                            {surveys[currentSurvey].title}
+                          </motion.h2>
+                          
+                          <motion.p 
+                            className="text-lg md:text-xl text-gray-300 leading-relaxed max-w-2xl"
+                            initial={{ opacity: 0, x: -50 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: 0.5, duration: 0.8 }}
+                          >
+                            {surveys[currentSurvey].description}
+                          </motion.p>
+                        </div>
 
-              {/* Controls */}
-              <div className="flex items-center justify-center mt-8 space-x-4">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={prevSurvey}
-                  className="p-2"
-                >
-                  <ChevronLeft className="w-4 h-4" />
-                </Button>
-                
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={togglePlayPause}
-                  className="p-2"
-                >
-                  {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
-                </Button>
-                
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={nextSurvey}
-                  className="p-2"
-                >
-                  <ChevronRight className="w-4 h-4" />
-                </Button>
-              </div>
+                        <motion.div 
+                          className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl"
+                          initial={{ opacity: 0, y: 30 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 0.6, duration: 0.8 }}
+                        >
+                          {surveys[currentSurvey].features.map((feature, index) => (
+                            <motion.div
+                              key={feature}
+                              initial={{ opacity: 0, x: -20 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ delay: 0.7 + index * 0.1, duration: 0.6 }}
+                              className="flex items-center space-x-3 text-gray-300"
+                            >
+                              <div className="w-3 h-3 bg-cyan-400 rounded-full shadow-lg shadow-cyan-400/50" />
+                              <span className="text-sm md:text-base">{feature}</span>
+                            </motion.div>
+                          ))}
+                        </motion.div>
 
-              {/* Indicators */}
-              <div className="flex justify-center mt-4 space-x-2">
-                {surveys.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentSurvey(index)}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                      index === currentSurvey ? "bg-cyan-400" : "bg-gray-600"
-                    }`}
-                  />
-                ))}
-              </div>
+                        <motion.div
+                          initial={{ opacity: 0, y: 30 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 0.8, duration: 0.8 }}
+                        >
+                          <Button className="bg-cyan-600 hover:bg-cyan-700 text-white px-8 py-4 text-lg">
+                            Explore Solution
+                          </Button>
+                        </motion.div>
+                      </motion.div>
+                    </div>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+
+            {/* Navigation Controls */}
+            <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex items-center space-x-6 z-20">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={prevSurvey}
+                className="p-3 bg-gray-800/80 border-gray-600 hover:bg-gray-700 text-white backdrop-blur-sm"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </Button>
+              
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={togglePlayPause}
+                className="p-3 bg-gray-800/80 border-gray-600 hover:bg-gray-700 text-white backdrop-blur-sm"
+              >
+                {isPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5" />}
+              </Button>
+              
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={nextSurvey}
+                className="p-3 bg-gray-800/80 border-gray-600 hover:bg-gray-700 text-white backdrop-blur-sm"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </Button>
+            </div>
+
+            {/* Indicators */}
+            <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 flex space-x-3 z-20">
+              {surveys.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentSurvey(index)}
+                  className={`w-3 h-3 rounded-full transition-all duration-500 ${
+                    index === currentSurvey 
+                      ? "bg-cyan-400 shadow-lg shadow-cyan-400/50" 
+                      : "bg-gray-600 hover:bg-gray-500"
+                  }`}
+                />
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-20 bg-gray-800/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-6">
-              Survey Features
-            </h2>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-              Everything you need to create, distribute, and analyze surveys effectively.
-            </p>
-          </AnimatedSection>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Drag & Drop Builder",
-                description: "Create surveys effortlessly with our intuitive builder.",
-                icon: "🎯",
-              },
-              {
-                title: "Real-time Analytics",
-                description: "Monitor responses and analyze data as it comes in.",
-                icon: "📊",
-              },
-              {
-                title: "Multi-channel Distribution",
-                description: "Share surveys via email, web, mobile, and social media.",
-                icon: "📱",
-              },
-              {
-                title: "Advanced Logic",
-                description: "Create dynamic surveys with conditional logic and branching.",
-                icon: "🔄",
-              },
-              {
-                title: "Custom Branding",
-                description: "Match your brand with custom themes and styling.",
-                icon: "🎨",
-              },
-              {
-                title: "Data Export",
-                description: "Export results in multiple formats for further analysis.",
-                icon: "📈",
-              },
-            ].map((feature, index) => (
-              <AnimatedSection
-                key={feature.title}
-                delay={index * 0.1}
-                className="group"
-              >
-                <motion.div
-                  whileHover={{ y: -10 }}
-                  className="bg-gray-800/80 rounded-xl p-6 border border-gray-700 hover:border-cyan-500/50 transition-all duration-300"
-                >
-                  <div className="text-4xl mb-4">{feature.icon}</div>
-                  <h3 className="text-xl font-semibold text-white mb-3">
-                    {feature.title}
-                  </h3>
-                  <p className="text-gray-400 text-sm">
-                    {feature.description}
-                  </p>
-                </motion.div>
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
-      <section className="py-20">
+      <section className="relative z-10 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center">
-            <div className="bg-gradient-to-r from-cyan-600 to-blue-600 rounded-2xl p-12">
-              <h2 className="text-4xl font-bold text-white mb-6">
+            <div className="bg-gradient-to-r from-cyan-600/20 to-blue-600/20 rounded-3xl p-12 border border-cyan-500/20 backdrop-blur-sm">
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
                 Ready to Start Surveying?
               </h2>
               <p className="text-xl text-cyan-100 mb-8 max-w-2xl mx-auto">
                 Create your first survey in minutes and start gathering valuable insights.
               </p>
-              <Button variant="secondary" size="lg">
+              <Button className="bg-cyan-600 hover:bg-cyan-700 text-white px-8 py-4 text-lg">
                 Get Started Now
               </Button>
             </div>
