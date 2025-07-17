@@ -138,29 +138,43 @@ const About = () => {
             </p>
           </AnimatedSection>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {[1, 2, 3].map((member, index) => (
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {[
+              { name: "Mina Michel", role: "Founder & Managing Director", image: "/lovable-uploads/e3b1abfa-196b-4d3c-aba2-c22d50defb40.png" },
+              { name: "Marina Danial", role: "CFO", image: "/lovable-uploads/e3b1abfa-196b-4d3c-aba2-c22d50defb40.png" },
+              { name: "Mourad Takawi", role: "Salesforce Technical Project Manager", image: "/lovable-uploads/e3b1abfa-196b-4d3c-aba2-c22d50defb40.png" },
+              { name: "Susan Rizk", role: "Program Manager", image: "/lovable-uploads/e3b1abfa-196b-4d3c-aba2-c22d50defb40.png" },
+              { name: "Nora Salman", role: "Business Analyst & Pre-Sales Consultant", image: "/lovable-uploads/e3b1abfa-196b-4d3c-aba2-c22d50defb40.png" },
+              { name: "Ashraf Rezk", role: "Head of Technology", image: "/lovable-uploads/e3b1abfa-196b-4d3c-aba2-c22d50defb40.png" },
+              { name: "Luay Aladin", role: "Salesforce Consultant", image: "/lovable-uploads/e3b1abfa-196b-4d3c-aba2-c22d50defb40.png" },
+              { name: "Fady Maged", role: "Salesforce Platform Developer", image: "/lovable-uploads/e3b1abfa-196b-4d3c-aba2-c22d50defb40.png" },
+              { name: "Andrew Ossama", role: "Salesforce Platform Developer", image: "/lovable-uploads/e3b1abfa-196b-4d3c-aba2-c22d50defb40.png" },
+              { name: "Carine Felix", role: "Brand & People Experience Specialist", image: "/lovable-uploads/e3b1abfa-196b-4d3c-aba2-c22d50defb40.png" },
+              { name: "Mireille Rafik", role: "Marketing & Brand Development", image: "/lovable-uploads/e3b1abfa-196b-4d3c-aba2-c22d50defb40.png" }
+            ].map((member, index) => (
               <AnimatedSection
-                key={member}
-                delay={index * 0.2}
+                key={member.name}
+                delay={index * 0.1}
                 className="group"
               >
                 <motion.div
-                  whileHover={{ y: -10 }}
-                  className="bg-gray-800/80 rounded-xl p-8 border border-gray-700 hover:border-cyan-500/50 transition-all duration-300"
+                  whileHover={{ y: -10, scale: 1.02 }}
+                  className="bg-gray-800/80 rounded-2xl p-4 border border-gray-700 hover:border-cyan-500/50 transition-all duration-300 text-center"
                 >
-                  <div className="w-24 h-24 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full mx-auto mb-6 flex items-center justify-center">
-                    <Users className="w-12 h-12 text-white" />
+                  <div className="relative mb-4">
+                    <div className="w-20 h-20 mx-auto rounded-full overflow-hidden border-2 border-cyan-500/30 group-hover:border-cyan-400 transition-colors duration-300">
+                      <img 
+                        src={member.image} 
+                        alt={member.name}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
                   </div>
-                  <h3 className="text-xl font-semibold text-white text-center mb-2">
-                    Team Member {member}
+                  <h3 className="text-lg font-semibold text-white mb-1 group-hover:text-cyan-300 transition-colors duration-300">
+                    {member.name}
                   </h3>
-                  <p className="text-cyan-400 text-center mb-4">
-                    Senior Consultant
-                  </p>
-                  <p className="text-gray-400 text-center text-sm">
-                    Expert in Salesforce architecture and business transformation 
-                    with over 10 years of experience.
+                  <p className="text-cyan-400 text-sm mb-2 font-medium">
+                    {member.role}
                   </p>
                 </motion.div>
               </AnimatedSection>

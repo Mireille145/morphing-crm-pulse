@@ -4,6 +4,7 @@ import { ArrowRight, BarChart3, Users, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
 import AnimatedSection from "../components/AnimatedSection";
 import Button from "../components/Button";
+import BlogShifter from "../components/BlogShifter";
 
 const Home = () => {
   const features = [
@@ -122,6 +123,22 @@ const Home = () => {
               </AnimatedSection>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Blog Section */}
+      <section className="py-20 bg-gray-800/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimatedSection className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-white mb-6">
+              Latest Insights
+            </h2>
+            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+              Stay updated with the latest trends and insights in CRM and business automation.
+            </p>
+          </AnimatedSection>
+
+          <BlogShifter />
         </div>
       </section>
 
