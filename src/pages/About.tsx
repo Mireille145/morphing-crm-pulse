@@ -3,6 +3,19 @@ import { motion } from "framer-motion";
 import { Target, Users, Award, TrendingUp } from "lucide-react";
 import AnimatedSection from "../components/AnimatedSection";
 
+// Team member images
+import minaImage from "../assets/team/mina-michel.jpg";
+import marinaImage from "../assets/team/marina-danial.jpg";
+import mouradImage from "../assets/team/mourad-takawi.jpg";
+import susanImage from "../assets/team/susan-rizk.jpg";
+import noraImage from "../assets/team/nora-salman.jpg";
+import ashrafImage from "../assets/team/ashraf-rezk.jpg";
+import luayImage from "../assets/team/luay-aladin.jpg";
+import fadyImage from "../assets/team/fady-maged.jpg";
+import andrewImage from "../assets/team/andrew-ossama.jpg";
+import carineImage from "../assets/team/carine-felix.jpg";
+import mireilleImage from "../assets/team/mireille-rafik.jpg";
+
 const About = () => {
   const values = [
     {
@@ -140,17 +153,17 @@ const About = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {[
-              { name: "Mina Michel", role: "Founder & Managing Director", image: "/lovable-uploads/e3b1abfa-196b-4d3c-aba2-c22d50defb40.png" },
-              { name: "Marina Danial", role: "CFO", image: "/lovable-uploads/e3b1abfa-196b-4d3c-aba2-c22d50defb40.png" },
-              { name: "Mourad Takawi", role: "Salesforce Technical Project Manager", image: "/lovable-uploads/e3b1abfa-196b-4d3c-aba2-c22d50defb40.png" },
-              { name: "Susan Rizk", role: "Program Manager", image: "/lovable-uploads/e3b1abfa-196b-4d3c-aba2-c22d50defb40.png" },
-              { name: "Nora Salman", role: "Business Analyst & Pre-Sales Consultant", image: "/lovable-uploads/e3b1abfa-196b-4d3c-aba2-c22d50defb40.png" },
-              { name: "Ashraf Rezk", role: "Head of Technology", image: "/lovable-uploads/e3b1abfa-196b-4d3c-aba2-c22d50defb40.png" },
-              { name: "Luay Aladin", role: "Salesforce Consultant", image: "/lovable-uploads/e3b1abfa-196b-4d3c-aba2-c22d50defb40.png" },
-              { name: "Fady Maged", role: "Salesforce Platform Developer", image: "/lovable-uploads/e3b1abfa-196b-4d3c-aba2-c22d50defb40.png" },
-              { name: "Andrew Ossama", role: "Salesforce Platform Developer", image: "/lovable-uploads/e3b1abfa-196b-4d3c-aba2-c22d50defb40.png" },
-              { name: "Carine Felix", role: "Brand & People Experience Specialist", image: "/lovable-uploads/e3b1abfa-196b-4d3c-aba2-c22d50defb40.png" },
-              { name: "Mireille Rafik", role: "Marketing & Brand Development", image: "/lovable-uploads/e3b1abfa-196b-4d3c-aba2-c22d50defb40.png" }
+              { name: "Mina Michel", role: "Founder & Managing Director", image: minaImage },
+              { name: "Marina Danial", role: "CFO", image: marinaImage },
+              { name: "Mourad Takawi", role: "Salesforce Technical Project Manager", image: mouradImage },
+              { name: "Susan Rizk", role: "Program Manager", image: susanImage },
+              { name: "Nora Salman", role: "Business Analyst & Pre-Sales Consultant", image: noraImage },
+              { name: "Ashraf Rezk", role: "Head of Technology", image: ashrafImage },
+              { name: "Luay Aladin", role: "Salesforce Consultant", image: luayImage },
+              { name: "Fady Maged", role: "Salesforce Platform Developer", image: fadyImage },
+              { name: "Andrew Ossama", role: "Salesforce Platform Developer", image: andrewImage },
+              { name: "Carine Felix", role: "Brand & People Experience Specialist", image: carineImage },
+              { name: "Mireille Rafik", role: "Marketing & Brand Development", image: mireilleImage }
             ].map((member, index) => (
               <AnimatedSection
                 key={member.name}
