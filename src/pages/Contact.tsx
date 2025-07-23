@@ -1,7 +1,7 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Mail, Phone, MapPin, Clock, Send } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, Send, Calendar } from "lucide-react";
 import AnimatedSection from "../components/AnimatedSection";
 import Button from "../components/Button";
 import { useToast } from "@/hooks/use-toast";
@@ -20,12 +20,14 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    // Redirect to email
+    const subject = encodeURIComponent(`Contact Form - ${formData.name}`);
+    const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\nCompany: ${formData.company}\n\nMessage:\n${formData.message}`);
+    window.location.href = `mailto:arezk@cloudastick.com?subject=${subject}&body=${body}`;
     
     toast({
-      title: "Message sent successfully!",
-      description: "We'll get back to you within 24 hours.",
+      title: "Opening email client...",
+      description: "Your message will be sent via email.",
     });
     
     setFormData({ name: "", email: "", company: "", message: "" });
@@ -43,25 +45,25 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email",
-      content: "hello@cloudastick.com",
-      link: "mailto:hello@cloudastick.com",
+      content: "support@cloudastick.com",
+      link: "mailto:support@cloudastick.com",
     },
     {
       icon: Phone,
       title: "Phone",
-      content: "+1 (555) 123-4567",
-      link: "tel:+15551234567",
+      content: "+2010-05-298-308",
+      link: "tel:+2010-05-298-308",
     },
     {
       icon: MapPin,
       title: "Address",
-      content: "123 Business Ave, Suite 100, Tech City, TC 12345",
+      content: "ArdelGolf, Nasr City, Cairo",
       link: "#",
     },
     {
       icon: Clock,
       title: "Hours",
-      content: "Mon-Fri: 9AM-6PM EST",
+      content: "Sun-Thursday 9-5pm (Cairo time)",
       link: "#",
     },
   ];
@@ -153,17 +155,31 @@ const Contact = () => {
                     />
                   </div>
                   
-                  <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                    <Button
-                      variant="primary"
-                      size="lg"
-                      disabled={isSubmitting}
-                      className="w-full"
-                    >
-                      {isSubmitting ? "Sending..." : "Send Message"}
-                      <Send className="ml-2 h-5 w-5" />
-                    </Button>
-                  </motion.div>
+                  <div className="grid gap-4">
+                    <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                      <Button
+                        variant="primary"
+                        size="lg"
+                        disabled={isSubmitting}
+                        className="w-full"
+                      >
+                        {isSubmitting ? "Sending..." : "Send Message"}
+                        <Send className="ml-2 h-5 w-5" />
+                      </Button>
+                    </motion.div>
+                    
+                    <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                      <Button
+                        variant="outline"
+                        size="lg"
+                        onClick={() => window.open("https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2txdIQjDOXs9sMVSh5H8_yadDlAOlmJY16CCT86fqUQPYCw6SH3gD0dCiUv8TnITIy1iamOQwY", "_blank")}
+                        className="w-full"
+                      >
+                        Book a Meeting
+                        <Calendar className="ml-2 h-5 w-5" />
+                      </Button>
+                    </motion.div>
+                  </div>
                 </form>
               </div>
             </AnimatedSection>
