@@ -44,7 +44,7 @@ const Home = () => {
               Boutique Intelligence.
             </h2>
             <p className="text-xl md:text-2xl text-gray-400 mb-12 max-w-4xl mx-auto leading-relaxed">
-              Salesforce consultants designed for your industry, your logo, your way of life.
+              Salesforce consultants designed for your industry, your way of life.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -94,8 +94,7 @@ const Home = () => {
               Why Cloudastick?
             </h2>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-              We're not just Salesforce experts, we're industry specialists. 
-              We understand your business because we've been there.
+              We've been a registered Salesforce.com partner since 2016, specializing in Salesforce cloud solutions and custom web development.
             </p>
           </AnimatedSection>
 

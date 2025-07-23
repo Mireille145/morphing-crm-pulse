@@ -100,6 +100,74 @@ const About = () => {
         </div>
       </section>
 
+      {/* What Sets Us Apart Section */}
+      <section className="py-20 bg-gradient-to-br from-gray-800/80 to-gray-900/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimatedSection className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-white mb-8">
+              What Sets Us Apart
+            </h2>
+          </AnimatedSection>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              "Industry-Smart CRM Design",
+              "Boutique Attention", 
+              "Salesforce Expertise",
+              "End-to-End Services"
+            ].map((feature, index) => (
+              <AnimatedSection
+                key={feature}
+                delay={index * 0.2}
+                direction={index % 2 === 0 ? "left" : "right"}
+                className="group"
+              >
+                <motion.div
+                  whileHover={{ 
+                    y: -15, 
+                    scale: 1.05,
+                    rotateY: 5,
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  className="relative bg-gradient-to-br from-cyan-500/10 to-blue-600/10 rounded-2xl p-8 border border-cyan-500/20 hover:border-cyan-400/50 transition-all duration-500 backdrop-blur-sm overflow-hidden"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ delay: index * 0.1 + 0.3, duration: 0.6, type: "spring" }}
+                    className="w-12 h-12 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg"
+                  >
+                    <motion.div
+                      animate={{ rotate: [0, 360] }}
+                      transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                      className="w-6 h-6 border-2 border-white/60 border-t-white rounded-full"
+                    />
+                  </motion.div>
+                  
+                  <motion.h3
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 + 0.5 }}
+                    className="text-xl font-bold text-white text-center group-hover:text-cyan-300 transition-colors duration-300"
+                  >
+                    {feature}
+                  </motion.h3>
+                  
+                  <motion.div
+                    initial={{ scaleX: 0 }}
+                    animate={{ scaleX: 1 }}
+                    transition={{ delay: index * 0.1 + 0.7, duration: 0.8 }}
+                    className="w-16 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto mt-4 rounded-full group-hover:w-24 transition-all duration-300"
+                  />
+                </motion.div>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Values Section */}
       <section className="py-20 bg-gray-800/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
