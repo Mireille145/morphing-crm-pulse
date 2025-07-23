@@ -1,7 +1,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react";
+import { ChevronLeft, ChevronRight, Play, Pause, Calendar, Mail } from "lucide-react";
 import AnimatedSection from "../components/AnimatedSection";
 import Button from "../components/Button";
 
@@ -286,9 +286,26 @@ const Clients = () => {
               <p className="text-xl text-cyan-100 mb-8 max-w-2xl mx-auto">
                 Let's discuss how we can help your business grow and succeed.
               </p>
-              <Button className="bg-cyan-600 hover:bg-cyan-700 text-white px-8 py-4 text-lg">
-                Get Started Today
-              </Button>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button 
+                  className="bg-cyan-600 hover:bg-cyan-700 text-white px-8 py-4 text-lg"
+                  onClick={() => {
+                    const subject = encodeURIComponent("Get Started with Cloudastick");
+                    window.location.href = `mailto:arezk@cloudastick.com?subject=${subject}`;
+                  }}
+                >
+                  <Mail className="mr-2 h-5 w-5" />
+                  Get Started Today
+                </Button>
+                <Button 
+                  variant="outline"
+                  className="border-cyan-500 text-cyan-400 hover:bg-cyan-500 hover:text-white px-8 py-4 text-lg"
+                  onClick={() => window.open("https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2txdIQjDOXs9sMVSh5H8_yadDlAOlmJY16CCT86fqUQPYCw6SH3gD0dCiUv8TnITIy1iamOQwY", "_blank")}
+                >
+                  <Calendar className="mr-2 h-5 w-5" />
+                  Book a Meeting
+                </Button>
+              </div>
             </div>
           </AnimatedSection>
         </div>

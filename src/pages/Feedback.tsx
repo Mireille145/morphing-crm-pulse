@@ -307,7 +307,10 @@ const Feedback = () => {
               <p className="text-xl text-yellow-100 mb-8 max-w-2xl mx-auto">
                 Let us help you achieve the same level of success as our satisfied clients.
               </p>
-              <Button className="bg-yellow-600 hover:bg-yellow-700 text-white px-8 py-4 text-lg">
+              <Button 
+                className="bg-yellow-600 hover:bg-yellow-700 text-white px-8 py-4 text-lg"
+                onClick={() => window.open("https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2txdIQjDOXs9sMVSh5H8_yadDlAOlmJY16CCT86fqUQPYCw6SH3gD0dCiUv8TnITIy1iamOQwY", "_blank")}
+              >
                 Start Your Journey
               </Button>
             </div>
